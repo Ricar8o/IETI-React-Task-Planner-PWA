@@ -1,6 +1,6 @@
 import React from 'react';
 import  DrawerComponent  from './DrawerComponent';
-import  CardsComponent  from './CardsComponent';
+import { CardsComponent } from './CardsComponent';
 
 export class TaskApp extends React.Component {
 
