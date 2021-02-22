@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {Login} from './components/Login';
-import {BrowserRouter as Router,Link, Route} from 'react-router-dom';
+import {BrowserRouter as Router,Link, Redirect, Route} from 'react-router-dom';
 import {TaskApp} from './components/TaskApp';
 
 const LoginView = () => (
@@ -36,7 +36,7 @@ class App extends Component {
                   <Route exact path="/" component={LoginView}/>
                    
                   <Route path="/tasks" component={TaskAppView}/>
-                
+
                 </div>
 
 

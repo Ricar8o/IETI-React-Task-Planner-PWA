@@ -13,24 +13,26 @@ export class CardsComponent extends React.Component{
       return (
         <Grid item key={i}>
           <Card className="Card" variant="outlined">
-            <CardContent>
-            <Typography className="title" color="textSecondary" gutterBottom>
-                {task.description}
-              </Typography>
-              <Typography variant="body2" component="p">
-                {task.status} - {task.dueDate}
+            <CardContent >
+            <p  className="Description">
+               {task.description}
+              </p>
+              <Grid container justify="center"  className="Status">
+                <Grid item xs>
+                  <p>{task.status}</p>
+                  
+                </Grid>
+                <Grid item xs>
+                <p>{task.dueDate}</p>
+                </Grid>
                 
-              </Typography>
-              <Typography variant="body1" component="p">
-                <br/>
+              </Grid>
+              <div className="Contact">
                 {task.responsible.name}
                 <br/>
                 {task.responsible.email}
-              </Typography>
+              </div>
             </CardContent>
-            <CardActions>
-              <Button size="small">Nothing Button</Button>
-            </CardActions>
           </Card>
         </Grid >
           // <Todo key={i} text={todo.text} priority={todo.priority} dueDate={todo.dueDate}/>

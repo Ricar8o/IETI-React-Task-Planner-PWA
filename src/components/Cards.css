@@ -4,3 +4,17 @@
     padding-top: 4%;
     padding-bottom: 3%;
 }
+
+.Description {
+    font-size: large;
+    font-weight: bold;
+}
+
+.Status {
+    font-size: medium;
+
+}
+
+.Contact {
+    font-size: small;
+}
