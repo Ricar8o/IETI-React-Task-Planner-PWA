@@ -96,14 +96,7 @@ export default function DrawerComponent() {
         </List>
         
       </Drawer>
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: open,
-        })}
-      >
-        <div className={classes.drawerHeader} />
-        {/* Poner contenido aqui */}
-      </main>
+      
     </div>
   );
 }
