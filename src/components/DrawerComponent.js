@@ -1,17 +1,13 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
+import { makeStyles, useTheme} from '@material-ui/core/styles';
+import {Drawer, CssBaseline, AppBar, Toolbar, Grid, Divider, IconButton, Typography} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
+import "./Drawer.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 const drawerWidth = 240;
 
@@ -40,8 +36,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
+
     justifyContent: 'flex-end',
   },
 }));
@@ -76,6 +71,7 @@ export default function DrawerComponent() {
           </IconButton>
         </Toolbar>
       </AppBar>
+
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -90,11 +86,27 @@ export default function DrawerComponent() {
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
+       
+        <div className="UserDrawerData">
+          <Grid container direction="row" justify="center" alignItems="center" spacing={2} >
+            <Grid item>
+              <FontAwesomeIcon icon={faUser} size="4x" />
+            </Grid>
+            <Grid item>
+            <Typography className="title">
+              Ricardo Martinez
+            </Typography>
+            <Typography variant="body2" className="Mail">
+              ricardo@somemail.com
+            </Typography>
+              
+              
+              
+            </Grid>
+            
+          </Grid>
+        </div>
         <Divider />
-        <List>
-         <ListItem >Hola</ListItem>
-        </List>
-        
       </Drawer>
       
     </div>
