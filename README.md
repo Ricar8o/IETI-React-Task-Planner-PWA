@@ -1,3 +1,16 @@
+# Access
+
+    * username : Ricardo
+    * password : 1234567
+
+# Deploys
+
+[![DeployHeroku](https://www.herokucdn.com/deploy/button.svg)](https://quiet-garden-35970.herokuapp.com/)
+
+[![DeployAWS](https://raw.githubusercontent.com/aws-amplify/aws-amplify.github.io/master/images/Logos/Amplify%20Logo.svg)](https://main.d7t7u53yqtfs8.amplifyapp.com/)  
+AWS Amplify
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
