@@ -20,6 +20,18 @@ const TaskAppView = () => (
   <TaskApp/>
 );
 
+function view () {
+  if(localStorage.getItem('isLoggedIn')===true){
+    return(
+      TaskAppView
+    )
+  }else{
+    return(
+      LoginView
+    )
+  }
+}
+
 class App extends Component {
 
     constructor(props) {
@@ -32,18 +44,22 @@ class App extends Component {
           <Router>
             <div className="App">
 
-                <div>
+                {/* <div>
                   <Route exact path="/" component={LoginView}/>
                    
-                  <Route path="/tasks" component={TaskAppView}/>
+                  { localStorage.getItem('isLoggedIn') &&  <Route path="/tasks" component={TaskAppView}/>}
 
                 </div>
 
-
-                <ul>
+ 
+                { localStorage.getItem('isLoggedIn') && <ul>
                     <li><Link to="/">Login</Link></li>
                     <li><Link to="/tasks">Task</Link></li>
-                </ul>
+                </ul> 
+                } */}
+
+                {localStorage.getItem('isLoggedIn')===null && LoginView()}
+                {localStorage.getItem('isLoggedIn')==="true" && TaskAppView()}
 
             </div>
           </Router>

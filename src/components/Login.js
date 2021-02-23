@@ -6,7 +6,6 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import Paper from '@material-ui/core/Paper';
 import './Login.css'
-import { Redirect } from 'react-router-dom';
 
 localStorage.setItem('username', 'Ricardo');
 localStorage.setItem('password', '1234567');
@@ -16,6 +15,7 @@ export class Login extends React.Component{
     constructor(props) {
         super(props);
         this.handleClickChange = this.handleClickChange.bind(this);
+      
     }
 
     render(){
