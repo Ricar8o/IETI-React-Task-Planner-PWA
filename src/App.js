@@ -17,20 +17,11 @@ const LoginView = () => (
 );
 
 const TaskAppView = () => (
-  <TaskApp/>
+  <div className="taskAppView">
+    <TaskApp/>
+  </div>
 );
 
-function view () {
-  if(localStorage.getItem('isLoggedIn')===true){
-    return(
-      TaskAppView
-    )
-  }else{
-    return(
-      LoginView
-    )
-  }
-}
 
 class App extends Component {
 

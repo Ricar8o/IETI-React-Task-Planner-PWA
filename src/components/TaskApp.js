@@ -15,7 +15,7 @@ export class TaskApp extends React.Component {
             "status": "ready",
             "dueDate": 156464645646
         }
-        this.state = {items: [task]};
+        this.state = {items: [task,task,task]};
     }
     
     render() {

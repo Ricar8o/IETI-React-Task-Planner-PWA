@@ -1,13 +1,14 @@
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme} from '@material-ui/core/styles';
-import {Drawer, CssBaseline, AppBar, Toolbar, Grid, Divider, IconButton, Typography} from '@material-ui/core';
+import {Drawer, CssBaseline, AppBar, Toolbar, Grid, Divider, IconButton, Typography, Button} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import "./Drawer.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { useHistory } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -41,10 +42,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 export default function DrawerComponent() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const history = useHistory();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -52,6 +55,11 @@ export default function DrawerComponent() {
 
   const handleDrawerClose = () => {
     setOpen(false);
+  };
+
+  const handleClickChange = () => {
+    localStorage.removeItem('isLoggedIn');
+    history.push("/");
   };
 
   return (
@@ -100,15 +108,16 @@ export default function DrawerComponent() {
               ricardo@somemail.com
             </Typography>
               
-              
-              
             </Grid>
-            
           </Grid>
         </div>
         <Divider />
+        <Button color="secondary" onClick={handleClickChange} >
+          LogOut
+        </Button>
       </Drawer>
       
     </div>
   );
+  
 }
