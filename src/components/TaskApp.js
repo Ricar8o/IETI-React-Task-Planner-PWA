@@ -23,7 +23,7 @@ export class TaskApp extends React.Component {
             "status": statusValues[1],
             "dueDate": this.formatDate( new Date())
         }
-        this.state = {items: [task], open: false,
+        this.state = {items: [task,task], open: false,
             description: "",
             name: "",
             email: "",
@@ -32,7 +32,8 @@ export class TaskApp extends React.Component {
             responsibleValues:[task.responsible.name],
             filterResponsible: "",
             filterStatus: "",
-            filterDate: new Date()
+            filterDate: new Date(),
+            allItems: [task,task]
         };
 
         this.handleClickOpen = this.handleClickOpen.bind(this);
@@ -52,6 +53,8 @@ export class TaskApp extends React.Component {
         this.handleFilterDate = this.handleFilterDate.bind(this);
         this.handleFilterSubmit = this.handleFilterSubmit.bind(this);
         this.clearContent = this.clearContent.bind(this);
+
+        this.applyFilter = this.applyFilter.bind(this)
     }
 
     CardsView = () => (
@@ -170,13 +173,14 @@ export class TaskApp extends React.Component {
         };
         this.setState(prevState => ({
             items: prevState.items.concat(newItem),
+            allItems: prevState.items.concat(newItem),
             open: false,
             description: "",
             name: "",
             email: "",
             status: "",
             dueDate:"",
-            responsibleValues: prevState.responsibleValues.concat(prevState.name),
+            responsibleValues: !prevState.responsibleValues.includes(prevState.name) ? prevState.responsibleValues.concat(prevState.name) : prevState.responsibleValues,
         }));
     }
 
@@ -201,9 +205,7 @@ export class TaskApp extends React.Component {
 
     handleFilterSubmit(e){
         e.preventDefault();
-
-        console.log(this.state);
-        
+        this.applyFilter();
     }
 
     clearContent(e){
@@ -213,12 +215,48 @@ export class TaskApp extends React.Component {
             filterStatus: "",
             filterDate: new Date()
         }));
+        this.setState({
+            items: this.state.allItems
+        });
     }
 
 
     applyFilter(){
-        var items = this.state.items;
-        var showItems = [];
+        let itemsList = [];
+        let showItems = this.state.allItems;
+        let filterName = this.state.filterResponsible;
+        let filterStatus = this.state.filterStatus;
+        let filterDate = this.state.filterDate;
 
+        if (filterName.length ){
+            showItems.filter( item => {
+                if ( item.responsible.name==filterName){
+                    itemsList.push(item);
+                }
+            });
+            showItems = itemsList;
+            itemsList = [];
+        }
+
+        if (filterStatus.length ){
+            showItems.filter( item => {
+                if ( item.status==filterStatus){
+                    itemsList.push(item);
+                }
+            });
+            showItems = itemsList;
+            itemsList = [];
+        }
+
+        showItems.filter( item => {
+            if ( item.dueDate==this.formatDate(filterDate)){
+                itemsList.push(item);
+            }
+        });
+        showItems = itemsList;
+        
+        this.setState({
+            items:  showItems
+        });
     }
 }
