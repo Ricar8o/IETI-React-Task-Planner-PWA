@@ -2,14 +2,13 @@
 import React, {Component} from 'react';
 import './NewTask.css';
 import 'react-datepicker/dist/react-datepicker.css';
-import { Grid, IconButton, TextField, Typography, useTheme } from '@material-ui/core';
+import { Grid, IconButton, TextField, Tex } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import './UserProfile.css';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import swal from 'sweetalert';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { Link } from 'react-router-dom';
 
 export class UserProfile extends Component {
@@ -35,6 +34,7 @@ export class UserProfile extends Component {
             <div className="UserData">
                 <div className="userContainer">
                     <div className="IconContainer">
+                        <label>back</label>
                         <Link to="/">
                             <IconButton aria-label="back" >
                                 <ChevronLeftIcon /> 
