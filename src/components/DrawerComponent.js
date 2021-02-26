@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme} from '@material-ui/core/styles';
-import {Drawer, CssBaseline, AppBar, Toolbar, Grid, Divider, IconButton, Typography, Button} from '@material-ui/core';
+import {Drawer, CssBaseline, AppBar, Toolbar, Grid, Divider, IconButton, Typography, Button, TextField} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link, useHistory } from 'react-router-dom';
 
-const drawerWidth = 240;
+const drawerWidth = 250;
 
 const useStyles = makeStyles((theme) => ({
   
@@ -96,18 +96,20 @@ export default function DrawerComponent() {
         </div>
        
         <div className="UserDrawerData">
-          <Grid container direction="row" justify="center" alignItems="center" spacing={2} >
+          <Grid container direction="row" justify="center" alignItems="center" spacing={1} >
             <Grid item>
               <Link to="/register">
                 <FontAwesomeIcon icon={faUser} size="4x" />
+                <br/>
+                Change info
               </Link>
             </Grid>
             <Grid item>
             <Typography className="title">
-              Ricardo Martinez
+              {localStorage.getItem("fullname")}
             </Typography>
             <Typography variant="body2" className="Mail">
-              ricardo@somemail.com
+              {localStorage.getItem("username")}
             </Typography>
               
             </Grid>

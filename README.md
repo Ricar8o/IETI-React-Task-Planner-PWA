@@ -1,6 +1,6 @@
 # Access
 
-    * username : Ricardo
+    * username : ricardo@somemail.com
     * password : 1234567
 
 # Deploys

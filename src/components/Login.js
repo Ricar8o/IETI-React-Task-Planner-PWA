@@ -7,9 +7,6 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Paper from '@material-ui/core/Paper';
 import './Login.css'
 
-localStorage.setItem('username', 'Ricardo');
-localStorage.setItem('password', '1234567');
-
 export class Login extends React.Component{
 
     constructor(props) {
