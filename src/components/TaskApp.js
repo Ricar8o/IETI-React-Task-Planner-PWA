@@ -5,7 +5,6 @@ import { NewTask } from './NewTask';
 import { Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import './Tasks.css';
-import moment from "moment";
 import { format } from 'date-fns';
 
 export class TaskApp extends React.Component {

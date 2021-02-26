@@ -1,0 +1,17 @@
+.userContainer{
+    margin: 4%;
+    padding: 3%;
+}
+
+h2{
+    font-style:italic ;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.campo label{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.Button-User-Container{
+    padding-top: 5%;
+}

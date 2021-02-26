@@ -6,7 +6,7 @@ import { Grid, MenuItem, TextField } from '@material-ui/core';
 import  DateFnsUtils  from "@date-io/date-fns";
 import { Button } from '@material-ui/core';
 
-const statusValues = ["Ready","In progress","Done"] 
+const statusValues = ["Ready","In Progress","Done"] 
 
 export class NewTask extends Component {
 
