@@ -12,6 +12,8 @@ export class NewTask extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {"myDate": new Date()};
+        this.handleDateChange = this.handleDateChange.bind(this);
     }
 
 
@@ -19,7 +21,7 @@ export class NewTask extends Component {
 
         return (
             <div className="TodoApp">
-                <form  className="todo-form">
+                <form onSubmit={this.props.handleSubmit} className="todo-form">
                     <h2> NEW TASK</h2>
                     <TextField
                         variant="outlined"
@@ -31,6 +33,7 @@ export class NewTask extends Component {
                         name="description"
                         autoComplete="description"
                         autoFocus
+                        onChange={this.props.handleTextChange}
                     />
                     <TextField
                         variant="outlined"
@@ -42,6 +45,7 @@ export class NewTask extends Component {
                         name="responsible"
                         autoComplete="Responsible"
                         autoFocus
+                        onChange={this.props.handleNameChange}
                     />
 
                     <TextField
@@ -54,6 +58,7 @@ export class NewTask extends Component {
                         name="email"
                         autoComplete="Email"
                         autoFocus
+                        onChange={this.props.handleEmailChange}
                     />
                     <div className="spaces-container">
                         <TextField
@@ -63,6 +68,8 @@ export class NewTask extends Component {
                             label="Select Status"
                             fullWidth
                             helperText="(Ready, In Progress, Done)"
+                            defaultValue={statusValues[0]}
+                            onChange={this.props.handleStatusChange}
                         >
                             {statusValues.map((option) => (
                             <MenuItem key={option} value={option}>
@@ -78,15 +85,17 @@ export class NewTask extends Component {
                                 fullWidth
                                 required
                                 placeholder="Due date"
-                                onChange={this.handleDateChange}>
+                                onChange={this.handleDateChange}
+                                value={this.state.myDate}
+                            >
                             </DatePicker>
                         </MuiPickersUtilsProvider>
                     </div>
                     <div className="button-container">
                         <Grid container justify="space-around" alignItems="center">
                             <Grid item>
-                                <Button size="large" variant="contained" color="primary"  >
-                                    Algo
+                                <Button size="large" variant="contained" color="primary" >
+                                    Cancel
                                 </Button>
                             </Grid>
                             <Grid item>
@@ -105,6 +114,11 @@ export class NewTask extends Component {
         );
     }
 
+    handleDateChange(date) {
+        this.props.handleDateChange(date);
+        this.setState({
+            myDate: date 
+        });
+    }
     
-
 }

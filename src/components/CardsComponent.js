@@ -9,6 +9,7 @@ export class CardsComponent extends React.Component{
   }   
 
   render() {
+    const dateFormat = "dd MM yyyy";
     const taskList = this.props.taskList.map((task, i) => {
       return (
         <Grid item key={i}>
