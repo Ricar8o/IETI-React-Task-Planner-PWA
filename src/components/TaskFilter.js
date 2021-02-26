@@ -35,7 +35,7 @@ export class TaskFilter extends React.Component{
                                     fullWidth
                                     placeholder="Due date"
                                     onChange={this.props.handleFilterDate}
-                                    helperText="Select date to apply"
+                                    helperText="Default value is today"
                                     value={this.props.filterDate}
                                 >
                                 </DatePicker>
@@ -61,7 +61,7 @@ export class TaskFilter extends React.Component{
                             <TextField
                                 id="responsible"
                                 select
-                                label="Select responsible"
+                                label="Select Responsible"
                                 fullWidth
                                 value = {this.props.filterResponsible}
                                 onChange={this.props.handleFilterResponsible}

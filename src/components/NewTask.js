@@ -85,6 +85,8 @@ export class NewTask extends Component {
                                 placeholder="Due date"
                                 onChange={this.handleDateChange}
                                 value={this.state.myDate}
+                                helperText="Be sure to pick a date"
+                                label="Required"
                             >
                             </DatePicker>
                         </MuiPickersUtilsProvider>
