@@ -4,6 +4,7 @@ import './App.css';
 import {Login} from './components/Login';
 import {BrowserRouter as Router,Link, Redirect, Route} from 'react-router-dom';
 import {TaskApp} from './components/TaskApp';
+import { UserProfile } from './components/UserProfile';
 
 const LoginView = () => (
   <div className='loginview'>
@@ -22,6 +23,18 @@ const TaskAppView = () => (
   </div>
 );
 
+const LogicView = () => (
+  <div className="logicAppView">
+    {localStorage.getItem('isLoggedIn')===null && LoginView()}
+    {localStorage.getItem('isLoggedIn')==="true" && TaskAppView()}
+  </div>
+);
+
+const UserView = () => (
+  <div className="userAppView">
+    <UserProfile/>
+  </div>
+);
 
 class App extends Component {
 
@@ -34,23 +47,12 @@ class App extends Component {
         return (
           <Router>
             <div className="App">
-
-                {/* <div>
-                  <Route exact path="/" component={LoginView}/>
-                   
-                  { localStorage.getItem('isLoggedIn') &&  <Route path="/tasks" component={TaskAppView}/>}
-
-                </div>
-
- 
-                { localStorage.getItem('isLoggedIn') && <ul>
-                    <li><Link to="/">Login</Link></li>
-                    <li><Link to="/tasks">Task</Link></li>
-                </ul> 
-                } */}
-
-                {localStorage.getItem('isLoggedIn')===null && LoginView()}
-                {localStorage.getItem('isLoggedIn')==="true" && TaskAppView()}
+              <div>
+                  <Route exact path="/" component={LogicView}/>
+                     
+                  <Route path="/register" component={UserView}/>
+                  
+              </div>
 
             </div>
           </Router>

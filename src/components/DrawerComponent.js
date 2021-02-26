@@ -8,7 +8,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import "./Drawer.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -98,7 +98,9 @@ export default function DrawerComponent() {
         <div className="UserDrawerData">
           <Grid container direction="row" justify="center" alignItems="center" spacing={2} >
             <Grid item>
-              <FontAwesomeIcon icon={faUser} size="4x" />
+              <Link to="/register">
+                <FontAwesomeIcon icon={faUser} size="4x" />
+              </Link>
             </Grid>
             <Grid item>
             <Typography className="title">
