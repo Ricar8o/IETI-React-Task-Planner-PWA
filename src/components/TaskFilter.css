@@ -1,0 +1,17 @@
+.filter{
+    position: relative;
+    padding-top: 3%;
+    padding-bottom: 5%;
+    margin: 8%;
+    background-color: white;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+h2{
+    text-align: center;
+}
+
+.button-filter{
+    color: #6318b9;
+}

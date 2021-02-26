@@ -6,8 +6,6 @@ import { Grid, MenuItem, TextField } from '@material-ui/core';
 import  DateFnsUtils  from "@date-io/date-fns";
 import { Button } from '@material-ui/core';
 
-const statusValues = ["Ready","In Progress","Done"] 
-
 export class NewTask extends Component {
 
     constructor(props) {
@@ -68,10 +66,10 @@ export class NewTask extends Component {
                             label="Select Status"
                             fullWidth
                             helperText="(Ready, In Progress, Done)"
-                            defaultValue={statusValues[0]}
+                            defaultValue={""}
                             onChange={this.props.handleStatusChange}
                         >
-                            {statusValues.map((option) => (
+                            {this.props.statusValues.map((option) => (
                             <MenuItem key={option} value={option}>
                                 {option}
                             </MenuItem>

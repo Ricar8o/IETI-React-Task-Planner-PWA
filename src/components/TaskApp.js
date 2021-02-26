@@ -1,11 +1,14 @@
 import React from 'react';
 import  DrawerComponent  from './DrawerComponent';
 import { CardsComponent } from './CardsComponent';
+import { TaskFilter }  from './TaskFilter';
 import { NewTask } from './NewTask';
 import { Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import './Tasks.css';
 import { format } from 'date-fns';
+
+const statusValues = ["Ready","In Progress","Done"] 
 
 export class TaskApp extends React.Component {
 
@@ -17,7 +20,7 @@ export class TaskApp extends React.Component {
                 "name": "Ricardo Martinez",
                 "email": "andres.martinez-d@mail.escuelaing.edu.co"
             },
-            "status": "In Progress",
+            "status": statusValues[1],
             "dueDate": this.formatDate( new Date())
         }
         this.state = {items: [task], open: false,
@@ -42,6 +45,7 @@ export class TaskApp extends React.Component {
 
     CardsView = () => (
         <div className="cards-container">
+            <TaskFilter statusValues={statusValues}/>
             <CardsComponent taskList={this.state.items}/>
             <Fab color="primary" aria-label="add">
                 <AddIcon onClick={this.handleClickOpen} />
@@ -59,6 +63,7 @@ export class TaskApp extends React.Component {
             handleDateChange={this.handleDateChange}
             handleSubmit={this.handleSubmit}
             handleClickClose={this.handleClickClose}
+            statusValues={statusValues}
             />
         </div>
     );
@@ -67,7 +72,6 @@ export class TaskApp extends React.Component {
         
         return (
             <div >
-                
                 <DrawerComponent/>
                 <div className="container">
                     {!this.state.open && this.CardsView()}
