@@ -11,6 +11,7 @@ export class TaskFilter extends React.Component{
         this.state = {
             open : false
         }
+        this.handleFilterSubmit = this.handleFilterSubmit.bind(this);
     }
 
     render(){
@@ -26,14 +27,16 @@ export class TaskFilter extends React.Component{
                     onClose={this.handleClickClose}
                 >
                     <div className="filter">
-                        <form>
+                        <form onSubmit={this.handleFilterSubmit}>
                             <h2> TASK FILTERS</h2>
                             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                 <DatePicker
                                     id="due-date"
                                     fullWidth
-                                    required
                                     placeholder="Due date"
+                                    onChange={this.props.handleFilterDate}
+                                    helperText="Select date to apply"
+                                    value={this.props.filterDate}
                                 >
                                 </DatePicker>
                             </MuiPickersUtilsProvider>
@@ -45,7 +48,8 @@ export class TaskFilter extends React.Component{
                                 fullWidth
                                 helperText="(Ready, In Progress, Done)"
                                 defaultValue= ""
-                                onChange={this.props.handleStatusChange}
+                                onChange={this.props.handleFilterStatus}
+                                value = {this.props.filterStatus}
                             >
                                 {this.props.statusValues.map((option) => (
                                 <MenuItem key={option} value={option}>
@@ -59,9 +63,8 @@ export class TaskFilter extends React.Component{
                                 select
                                 label="Select responsible"
                                 fullWidth
-                                helperText="(Ready, In Progress, Done)"
-                                defaultValue={""}
-                                // onChange={this.props.handleStatusChange}
+                                value = {this.props.filterResponsible}
+                                onChange={this.props.handleFilterResponsible}
                             >
                                 {this.props.responsibleValues.map((option) => (
                                 <MenuItem key={option} value={option}>
@@ -71,12 +74,12 @@ export class TaskFilter extends React.Component{
                             </TextField>
                             <div className="buttons-container">
                                
-                                <Button size="small" variant="outlined" color="inherit" fullWidth>
+                                <Button size="small" variant="outlined" color="inherit" fullWidth type="submit">
                                     Apply
                                 </Button>
                                 <br/><br/>
                         
-                                <Button size="small" variant="outlined" color="inherit" fullWidth>
+                                <Button size="small" variant="outlined" color="inherit" fullWidth onClick={this.props.clearContent}>
                                     Clear All
                                 </Button>           
                          
@@ -98,4 +101,9 @@ export class TaskFilter extends React.Component{
             open: false
         });
     };
+
+    handleFilterSubmit(e){
+        this.props.handleFilterSubmit(e);
+        this.handleClickClose();
+    }
 }

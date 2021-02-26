@@ -29,8 +29,12 @@ export class TaskApp extends React.Component {
             email: "",
             status: "",
             dueDate:"",
-            responsibleValues:[task.responsible.name]
+            responsibleValues:[task.responsible.name],
+            filterResponsible: "",
+            filterStatus: "",
+            filterDate: new Date()
         };
+
         this.handleClickOpen = this.handleClickOpen.bind(this);
         this.handleClickClose = this.handleClickClose.bind(this);
 
@@ -42,11 +46,27 @@ export class TaskApp extends React.Component {
         this.handleDateChange = this.handleDateChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.formatDate = this.formatDate.bind(this);
+
+        this.handleFilterResponsible = this.handleFilterResponsible.bind(this);
+        this.handleFilterStatus = this.handleFilterStatus.bind(this);
+        this.handleFilterDate = this.handleFilterDate.bind(this);
+        this.handleFilterSubmit = this.handleFilterSubmit.bind(this);
+        this.clearContent = this.clearContent.bind(this);
     }
 
     CardsView = () => (
         <div className="cards-container">
-            <TaskFilter statusValues={statusValues} responsibleValues={this.state.responsibleValues}/>
+            <TaskFilter statusValues={statusValues} 
+                responsibleValues={this.state.responsibleValues}
+                handleFilterResponsible={this.handleFilterResponsible}
+                handleFilterStatus={this.handleFilterStatus}
+                handleFilterDate={this.handleFilterDate}
+                handleFilterSubmit={this.handleFilterSubmit}
+                clearContent={this.clearContent}
+                filterDate={this.state.filterDate}
+                filterResponsible={this.state.filterResponsible}
+                filterStatus={this.state.filterStatus}
+            />
             <CardsComponent taskList={this.state.items}/>
             <Fab color="primary" aria-label="add">
                 <AddIcon onClick={this.handleClickOpen} />
@@ -158,5 +178,47 @@ export class TaskApp extends React.Component {
             dueDate:"",
             responsibleValues: prevState.responsibleValues.concat(prevState.name),
         }));
+    }
+
+    // Filter Handles
+    handleFilterResponsible(e){
+        this.setState({
+            filterResponsible:  e.target.value 
+        });
+    }
+
+    handleFilterStatus(e){
+        this.setState({
+            filterStatus:  e.target.value 
+        });
+    }
+
+    handleFilterDate(date){
+        this.setState({
+            filterDate:  date
+        });
+    }
+
+    handleFilterSubmit(e){
+        e.preventDefault();
+
+        console.log(this.state);
+        
+    }
+
+    clearContent(e){
+        e.preventDefault();
+        this.setState(prevState => ({
+            filterResponsible: "",
+            filterStatus: "",
+            filterDate: new Date()
+        }));
+    }
+
+
+    applyFilter(){
+        var items = this.state.items;
+        var showItems = [];
+
     }
 }
