@@ -94,7 +94,7 @@ export class NewTask extends Component {
                     <div className="button-container">
                         <Grid container justify="space-around" alignItems="center">
                             <Grid item>
-                                <Button size="large" variant="contained" color="primary" >
+                                <Button size="large" variant="contained" color="primary" onClick={this.props.handleClickClose}>
                                     Cancel
                                 </Button>
                             </Grid>

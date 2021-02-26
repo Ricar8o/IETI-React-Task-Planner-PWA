@@ -29,6 +29,8 @@ export class TaskApp extends React.Component {
             dueDate:""
         };
         this.handleClickOpen = this.handleClickOpen.bind(this);
+        this.handleClickClose = this.handleClickClose.bind(this);
+
         this.handleTextChange = this.handleTextChange.bind(this);
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -38,6 +40,29 @@ export class TaskApp extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.formatDate = this.formatDate.bind(this);
     }
+
+    CardsView = () => (
+        <div className="cards-container">
+            <CardsComponent taskList={this.state.items}/>
+            <Fab color="primary" aria-label="add">
+                <AddIcon onClick={this.handleClickOpen} />
+            </Fab>
+        </div>
+    );
+    
+    NewTaskView = () => (
+        <div className="form-container">
+            <NewTask state={this.state} 
+            handleTextChange={this.handleTextChange} 
+            handleNameChange={this.handleNameChange}
+            handleEmailChange={this.handleEmailChange}
+            handleStatusChange={this.handleStatusChange}
+            handleDateChange={this.handleDateChange}
+            handleSubmit={this.handleSubmit}
+            handleClickClose={this.handleClickClose}
+            />
+        </div>
+    );
     
     render() {
         
@@ -46,22 +71,8 @@ export class TaskApp extends React.Component {
                 
                 <DrawerComponent/>
                 <div className="container">
-                    <div className="cards-container">
-                        <CardsComponent taskList={this.state.items}/>
-                        <Fab color="primary" aria-label="add">
-                            <AddIcon onClick={this.handleClickOpen} />
-                        </Fab>
-                    </div>
-                    <div className="form-container">
-                        <NewTask state={this.state} 
-                        handleTextChange={this.handleTextChange} 
-                        handleNameChange={this.handleNameChange}
-                        handleEmailChange={this.handleEmailChange}
-                        handleStatusChange={this.handleStatusChange}
-                        handleDateChange={this.handleDateChange}
-                        handleSubmit={this.handleSubmit}
-                        />
-                    </div>
+                    {!this.state.open && this.CardsView()}
+                    {this.state.open && this.NewTaskView()}
                 </div>
 
 
@@ -79,8 +90,13 @@ export class TaskApp extends React.Component {
         this.setState({
             open: true
         });
-        console.log(this.state);
       };
+
+    handleClickClose = () => {
+        this.setState({
+            open: false
+        });
+    };
 
     handleTextChange(e) {
         this.setState({
