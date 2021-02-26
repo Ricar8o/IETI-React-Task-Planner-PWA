@@ -15,3 +15,10 @@ h2{
 .button-filter{
     color: #6318b9;
 }
+
+.buttons-container{
+    padding-top: 6%;
+    padding-left:1%;
+    padding-right: 1%;
+    color: #6318b9;
+}

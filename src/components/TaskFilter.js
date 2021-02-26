@@ -39,12 +39,12 @@ export class TaskFilter extends React.Component{
                             </MuiPickersUtilsProvider>
                             <br/><br/>
                             <TextField
-                                id="responsible"
+                                id="status"
                                 select
                                 label="Select Status"
                                 fullWidth
                                 helperText="(Ready, In Progress, Done)"
-                                defaultValue={this.props.statusValues[0]}
+                                defaultValue= ""
                                 onChange={this.props.handleStatusChange}
                             >
                                 {this.props.statusValues.map((option) => (
@@ -53,6 +53,34 @@ export class TaskFilter extends React.Component{
                                 </MenuItem>
                                 ))}
                             </TextField>
+                            <br/><br/>
+                            <TextField
+                                id="responsible"
+                                select
+                                label="Select responsible"
+                                fullWidth
+                                helperText="(Ready, In Progress, Done)"
+                                defaultValue={""}
+                                // onChange={this.props.handleStatusChange}
+                            >
+                                {this.props.responsibleValues.map((option) => (
+                                <MenuItem key={option} value={option}>
+                                    {option}
+                                </MenuItem>
+                                ))}
+                            </TextField>
+                            <div className="buttons-container">
+                               
+                                <Button size="small" variant="outlined" color="inherit" fullWidth>
+                                    Apply
+                                </Button>
+                                <br/><br/>
+                        
+                                <Button size="small" variant="outlined" color="inherit" fullWidth>
+                                    Clear All
+                                </Button>           
+                         
+                            </div>
                         </form>
                     </div>
                 </Modal>

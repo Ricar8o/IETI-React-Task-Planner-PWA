@@ -28,7 +28,8 @@ export class TaskApp extends React.Component {
             name: "",
             email: "",
             status: "",
-            dueDate:""
+            dueDate:"",
+            responsibleValues:[task.responsible.name]
         };
         this.handleClickOpen = this.handleClickOpen.bind(this);
         this.handleClickClose = this.handleClickClose.bind(this);
@@ -45,7 +46,7 @@ export class TaskApp extends React.Component {
 
     CardsView = () => (
         <div className="cards-container">
-            <TaskFilter statusValues={statusValues}/>
+            <TaskFilter statusValues={statusValues} responsibleValues={this.state.responsibleValues}/>
             <CardsComponent taskList={this.state.items}/>
             <Fab color="primary" aria-label="add">
                 <AddIcon onClick={this.handleClickOpen} />
@@ -154,7 +155,8 @@ export class TaskApp extends React.Component {
             name: "",
             email: "",
             status: "",
-            dueDate:""
+            dueDate:"",
+            responsibleValues: prevState.responsibleValues.concat(prevState.name),
         }));
     }
 }
