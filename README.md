@@ -5,9 +5,9 @@
 
 # Deploys
 
-[![DeployHeroku](https://www.herokucdn.com/deploy/button.svg)](https://quiet-garden-35970.herokuapp.com/)
+[![DeployHeroku](https://www.herokucdn.com/deploy/button.svg)](https://quiet-bayou-90932.herokuapp.com/)
 
-[![DeployAWS](https://raw.githubusercontent.com/aws-amplify/aws-amplify.github.io/master/images/Logos/Amplify%20Logo.svg)](https://main.d7t7u53yqtfs8.amplifyapp.com/)  
+[![DeployAWS](https://raw.githubusercontent.com/aws-amplify/aws-amplify.github.io/master/images/Logos/Amplify%20Logo.svg)](https://main.djr29dp7tlys9.amplifyapp.com/)  
 AWS Amplify
 
 
