@@ -15,3 +15,8 @@ h2{
 .Button-User-Container{
     padding-top: 5%;
 }
+
+.IconContainer{
+    color: black;
+    width: min-content;
+}
