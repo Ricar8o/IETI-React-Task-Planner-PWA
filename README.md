@@ -5,9 +5,9 @@
 
 # Deploys
 
-[![DeployFirebase](https://firebase.google.com/downloads/brand-guidelines/SVG/logo-built_black.svg](https://task-planner-app-96e7e.web.app/)
+[![DeployFirebase2](https://firebase.google.com/downloads/brand-guidelines/SVG/logo-standard.svg)](https://task-planner-app-96e7e.web.app/)
 
-[![DeployFirebase2](https://firebase.google.com/downloads/brand-guidelines/SVG/logo-standard.svg](https://task-planner-app-96e7e.firebaseapp.com/)
+[![DeployFirebase](https://firebase.google.com/downloads/brand-guidelines/SVG/logo-built_black.svg)](https://task-planner-app-96e7e.firebaseapp.com/)
 
 # Getting Started with Create React App
 
