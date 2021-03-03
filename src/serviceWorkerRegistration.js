@@ -49,6 +49,10 @@ export function register(config) {
         registerValidSW(swUrl, config);
       }
     });
+
+    window.addEventListener('install', () => {
+      console.log("install!!");
+    });
   }
 }
 
