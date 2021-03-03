@@ -5,11 +5,9 @@
 
 # Deploys
 
-[![DeployHeroku](https://www.herokucdn.com/deploy/button.svg)](https://quiet-bayou-90932.herokuapp.com/)
+[![DeployFirebase](https://firebase.google.com/downloads/brand-guidelines/SVG/logo-built_black.svg](https://task-planner-app-96e7e.web.app/)
 
-[![DeployAWS](https://raw.githubusercontent.com/aws-amplify/aws-amplify.github.io/master/images/Logos/Amplify%20Logo.svg)](https://main.djr29dp7tlys9.amplifyapp.com/)  
-AWS Amplify
-
+[![DeployFirebase2](https://firebase.google.com/downloads/brand-guidelines/SVG/logo-standard.svg](https://task-planner-app-96e7e.firebaseapp.com/)
 
 # Getting Started with Create React App
 
