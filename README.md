@@ -9,6 +9,17 @@
 
 [![DeployFirebase](https://firebase.google.com/downloads/brand-guidelines/SVG/logo-built_black.svg)](https://task-planner-app-96e7e.firebaseapp.com/)
 
+
+# Evidence
+
+<img src="img/proof2.jpg" >
+
+<img src="img/proof.jpg" width=30%/>
+
+<img src="img/proof1.jpg" width=30%/>
+
+<img src="img/proof3.jpg" width=30%>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
