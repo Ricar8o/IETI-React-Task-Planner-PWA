@@ -12,13 +12,13 @@
 
 # Evidence
 
-<img src="img/proof2.jpg" >
-
 <img src="img/proof.jpg" width=30%/>
 
 <img src="img/proof1.jpg" width=30%/>
 
 <img src="img/proof3.jpg" width=30%>
+
+<img src="img/proof2.jpg" >
 
 # Getting Started with Create React App
 
